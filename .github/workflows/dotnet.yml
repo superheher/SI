@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore SIGame dependencies
-      run: dotnet restore SIGame.sln
+      run: dotnet publish --no-restore SIGame.sln -c Release -p:PublishSingleFile=true -r win-x64 --self-contained true -p:EnableCompressionInSingleFile=true /property:Version=7.0.9
     - name: Build SIGame
       run: dotnet build SIGame.sln
     - name: Deploy SIGame
