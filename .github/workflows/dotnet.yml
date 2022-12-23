@@ -20,12 +20,10 @@ jobs:
     - name: Restore SIGame dependencies
       run: dotnet restore SIGame.sln
     - name: Build SIGame
-      run: dotnet build --no-restore SIGame.sln
-    - name: Restore SIQuester dependencies
-      run: dotnet restore SIQuester.sln
-    - name: Build SIQuester
-      run: dotnet build --no-restore SIQuester.sln
-    - name: Restore SImulator dependencies
-      run: dotnet restore SImulator.sln
-    - name: Build SImulator
-      run: dotnet build --no-restore SImulator.sln
+      run: dotnet build SIGame.sln
+    - name: Deploy SIGame
+      shell: bash
+      run: |
+        a=`find . | grep exe`
+        echo $a
+        
